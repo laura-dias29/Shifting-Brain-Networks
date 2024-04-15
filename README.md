@@ -7,6 +7,8 @@ The scripts include steps to proceed with the preprocessing, processing and stat
 
 Preprocessing_fMRI_FSL_pipeline.py - Preprocessing steps performed after images were denoised using a single session approach. Steps include slice timing correction, motion correction, brain extraction and image registration, using functions from FSL’s FMRIB’s Software Library (http://www.fmrib.ox.ac.uk/fsl).
 
-Network_analysis - Processing steps performed after running a multi-session temporal concatenation ICA, to obtain spacial maps of the common networks between subjects for both approaches. In order to extract time series from common networks of the two acquisistion types we 
+Dice_coefficient - A dice coeffiecient was used to find overlapping networks between the two approaches using the maps obtained by running a multi-session temporal concatenation ICA on both data sets. The intersection of the overlapping maps was used in the remaining steps.
+
+Network_analysis_pt_vs_rs - Processing steps performed after the dice coefficient step to obtain spacial maps of the common networks between subjects for both approaches. In order to extract time series from common networks of the two acquisistion types, 
 
 
