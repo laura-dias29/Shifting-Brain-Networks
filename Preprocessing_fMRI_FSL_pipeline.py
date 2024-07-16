@@ -10,7 +10,7 @@
 # ### 5. Image registration
 # ### 6. See what images to remove due to motion
 
-# In[1]:
+
 
 
 import numpy as np
@@ -28,7 +28,7 @@ import sys
 import pandas as pd
 
 
-# In[2]:
+
 
 
 'Cretate paths for the text files where the paths for all the resting state, anatomy, and passive task text files'
@@ -37,39 +37,36 @@ import pandas as pd
 'Loop over all the paths and perform the steps for each participant'
 
 
-# In[2]:
-
 
 'Create paths'
 
 
-den_input_list=np.genfromtxt(r'/home/r085233/preprocessing_paths/denoised_inputs_rs.txt',dtype=str)
-out_list_ts=np.genfromtxt(r"/home/r085233/preprocessing_paths/out_ts_rs.txt",dtype=str)
-out_list_tsmc=np.genfromtxt(r"/home/r085233/preprocessing_paths/out_ts_mcf_rs.txt",dtype=str)
-out_list_tsmc_bet=np.genfromtxt(r"/home/r085233/preprocessing_paths/out_ts_mcf_bet_rs.txt",dtype=str)
-out_list_tsmc_bet_flirt=np.genfromtxt(r"/home/r085233/preprocessing_paths/out_ts_mcf_bet_flirt_rs.txt",dtype=str)
-anat_bet_list=np.genfromtxt(r"/home/r085233/preprocessing_paths/anat_bet.txt",dtype=str)
-A_B_list=np.genfromtxt(r"/home/r085233/preprocessing_paths/mat_A_B.txt",dtype=str)
-B_C_list=np.genfromtxt(r"/home/r085233/preprocessing_paths/mat_B_C.txt",dtype=str)
-A_C_list=np.genfromtxt(r"/home/r085233/preprocessing_paths/mat_A_C.txt",dtype=str)
+den_input_list=np.genfromtxt(r'/denoised_inputs_rs.txt',dtype=str)
+out_list_ts=np.genfromtxt(r"/out_ts_rs.txt",dtype=str)
+out_list_tsmc=np.genfromtxt(r"/out_ts_mcf_rs.txt",dtype=str)
+out_list_tsmc_bet=np.genfromtxt(r"/out_ts_mcf_bet_rs.txt",dtype=str)
+out_list_tsmc_bet_flirt=np.genfromtxt(r"/out_ts_mcf_bet_flirt_rs.txt",dtype=str)
+anat_bet_list=np.genfromtxt(r"/anat_bet.txt",dtype=str)
+A_B_list=np.genfromtxt(r"/mat_A_B.txt",dtype=str)
+B_C_list=np.genfromtxt(r"/mat_B_C.txt",dtype=str)
+A_C_list=np.genfromtxt(r"/mat_A_C.txt",dtype=str)
 
 
 
-den_input_list_pt=np.genfromtxt(r'/home/r085233/preprocessing_paths/denoised_inputs_pt.txt',dtype=str)
-out_list_ts_pt=np.genfromtxt(r"/home/r085233/preprocessing_paths/out_ts_pt.txt",dtype=str)
-out_list_tsmc_pt=np.genfromtxt(r"/home/r085233/preprocessing_paths/out_ts_mcf_pt.txt",dtype=str)
-out_list_tsmc_bet_pt=np.genfromtxt(r"/home/r085233/preprocessing_paths/out_ts_mcf_bet_pt.txt",dtype=str)
-out_list_tsmc_bet_flirt_pt=np.genfromtxt(r"/home/r085233/preprocessing_paths/out_ts_mcf_bet_flirt_pt.txt",dtype=str)
-A_B_list_pt=np.genfromtxt(r"/home/r085233/preprocessing_paths/mat_A_B_pt.txt",dtype=str)
-B_C_list_pt=np.genfromtxt(r"/home/r085233/preprocessing_paths/mat_B_C_pt.txt",dtype=str)
-A_C_list_pt=np.genfromtxt(r"/home/r085233/preprocessing_paths/mat_A_C_pt.txt",dtype=str)
+den_input_list_pt=np.genfromtxt(r'/denoised_inputs_pt.txt',dtype=str)
+out_list_ts_pt=np.genfromtxt(r"/out_ts_pt.txt",dtype=str)
+out_list_tsmc_pt=np.genfromtxt(r"/out_ts_mcf_pt.txt",dtype=str)
+out_list_tsmc_bet_pt=np.genfromtxt(r"/out_ts_mcf_bet_pt.txt",dtype=str)
+out_list_tsmc_bet_flirt_pt=np.genfromtxt(r"/out_ts_mcf_bet_flirt_pt.txt",dtype=str)
+A_B_list_pt=np.genfromtxt(r"/mat_A_B_pt.txt",dtype=str)
+B_C_list_pt=np.genfromtxt(r"/mat_B_C_pt.txt",dtype=str)
+A_C_list_pt=np.genfromtxt(r"/mat_A_C_pt.txt",dtype=str)
 
 
 n = len(den_input_list)
 n_pt = len(den_input_list_pt)
 
 
-# In[4]:
 
 
 #Try to do Slicetimer
@@ -87,8 +84,6 @@ def ts (den_input_list,out_list_ts,n):
     return(result)
 
 
-# In[3]:
-
 
 
 #Try motion correction with mcflirt
@@ -103,8 +98,6 @@ def mc (out_list_ts,out_list_tsmc,n):
     return (res)
 
 
-# In[8]:
-
 
 #Try to do BET
 def bet (out_list_tsmc,out_list_tsmc_bet,n):
@@ -117,7 +110,7 @@ def bet (out_list_tsmc,out_list_tsmc_bet,n):
     return (res)
 
 
-# In[7]:
+
 
 
 #Try to use FLIRT
@@ -135,49 +128,46 @@ def flirt (out_list_tsmc_bet,out_list_tsmc_bet_flirt,anat_bet_list,A_B_list,B_C_
     return (res)
 
 
-# In[ ]:
+
 
 
 #ts(den_input_list,out_list_ts,n)
 
 
-# In[ ]:
+
 
 
 #ts(den_input_list_pt,out_list_ts_pt,n_pt)
 
 
-# In[ ]:
+
 
 
 #mc(out_list_ts,out_list_tsmc,n)
 
 
-# In[ ]:
 
 
 #mc(out_list_ts_pt,out_list_tsmc_pt,n_pt)
 
 
-# In[9]:
 
 
 #bet(out_list_tsmc,out_list_tsmc_bet,n)
 
 
-# In[ ]:
+
 
 
 bet(out_list_tsmc_pt,out_list_tsmc_bet_pt,n_pt)
 
 
-# In[ ]:
 
 
 flirt(out_list_tsmc_bet,out_list_tsmc_bet_flirt,anat_bet_list,A_B_list,B_C_list,A_C_list,n)
 
 
-# In[ ]:
+
 
 
 flirt(out_list_tsmc_bet_pt,out_list_tsmc_bet_flirt_pt,anat_bet_list,A_B_list_pt,B_C_list_pt,A_C_list_pt,n_pt)
@@ -185,23 +175,22 @@ flirt(out_list_tsmc_bet_pt,out_list_tsmc_bet_flirt_pt,anat_bet_list,A_B_list_pt,
 
 # # Exclude Motion outliers after preprocessing
 
-# In[2]:
 
 
-''''
-paths_motion_list=np.genfromtxt(r"/home/r085233/paths_mcp/denoised_rs.txt",dtype=str)
+
+paths_motion_list=np.genfromtxt(r"/denoised_rs.txt",dtype=str)
 m_l=len(paths_motion_list)
 id_num=np.zeros(m_l)
 
-paths_motion_list_pt=np.genfromtxt(r"/home/r085233/paths_mcp/denoised_pt.txt",dtype=str)
+paths_motion_list_pt=np.genfromtxt(r"/denoised_pt.txt",dtype=str)
 m_l_pt=len(paths_motion_list_pt)
 id_num_pt=np.zeros(m_l_pt)
 
 
 
 
-path_motion_list_hc_rs=np.genfromtxt(r"/home/r085233/paths_mcp/denoised_hc_rs.txt",dtype=str)
-path_motion_list_hc_pt=np.genfromtxt(r"/home/r085233/paths_mcp/denoised_hc_pt.txt",dtype=str)
+path_motion_list_hc_rs=np.genfromtxt(r"/denoised_hc_rs.txt",dtype=str)
+path_motion_list_hc_pt=np.genfromtxt(r"/denoised_hc_pt.txt",dtype=str)
 m_l_hc=len(path_motion_list_hc_rs)
 
 
@@ -225,10 +214,10 @@ for k in range(m_l_hc):
 print(id_num_m)
 
 
-# In[3]:
 
 
-''''
+
+
 def motion_out(num_vol,len_list,path,id_,state):
     
     t_2_t=np.zeros(num_vol-1)
@@ -270,31 +259,30 @@ def motion_out(num_vol,len_list,path,id_,state):
     return(final)
 
 
-# In[14]:
+
 
 
 motion_out(196,m_l,paths_motion_list,id_num,'motion_rs_denoised')
 
 
-# In[ ]:
 
 
 #motion_out(210,m_l_pt,paths_motion_list_pt,id_num_pt,'motion_pt_denoised')
 
 
-# In[ ]:
+
 
 
 #motion_out(196,m_l_hc,path_motion_list_hc_rs,id_num_m_c,'motion_rs_denoised_hc')
 
 
-# In[4]:
+
 
 
 #motion_out(210,m_l_hc,path_motion_list_hc_pt,id_num_m_c,'motion_pt_denoised_hc')
 
 
-# In[ ]:
+
 
 
 
