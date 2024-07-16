@@ -7,12 +7,12 @@
 # ### 2-Cerebellar
 # ### 3-Motor
 # ### 4-LFP
-# ### 5-DMN(Frontal)
+# ### 5-DMN_1(Medial Prefrontal Cortex))
 # ### 6-Sensorimotor
 # ### 7-Anterior Vision
 # ### 8-RFP
-# ### 9-DMN(Precuneus)
-# ### 10-DMN(Precuneus)
+# ### 9-DMN_3(DMN_3uneus and bilateral parietal occipital cortex)
+# ### 10-DMN_2(posterior cingulate cortex)
 # ### 11-Executive control
 # ### 12-Sensory
 # ### 13-Cerebellar occipital
@@ -147,7 +147,7 @@ net_DMN_2, size_label_DMN_2, l_DMN_2, list_DMN_2=labels_net(networks[9],z_s_hc_r
 
 
 
-net_prec, size_label_prec, l_prec, list_prec=labels_net(networks[8],z_s_hc_rs_struct,'int_prec')
+net_DMN_3, size_label_DMN_3, l_DMN_3, list_DMN_3=labels_net(networks[8],z_s_hc_rs_struct,'int_DMN_3')
 
 
 
@@ -236,8 +236,8 @@ print(l_DMN_2)
 
 
 
-mask_prec=mask_net(l_prec, size_label_prec, net_prec,z_s_hc_rs_struct,'_int_prec')
-print(l_prec)
+mask_DMN_3=mask_net(l_DMN_3, size_label_DMN_3, net_DMN_3,z_s_hc_rs_struct,'_int_DMN_3')
+print(l_DMN_3)
 
 
 
@@ -293,7 +293,7 @@ def time_series_extract(n_par,n_vol,mask_labels,blob,list_out):
 
 
 
-t_c=l_inf_front+l_LFP+l_cer+l_DMN_1+l_RFP+l_motor+l_ant_vis+l_DMN_2+l_prec+l_ex_cont+l_cer_occ+l_sens+l_sen_motor
+t_c=l_inf_front+l_LFP+l_cer+l_DMN_1+l_RFP+l_motor+l_ant_vis+l_DMN_2+l_DMN_3+l_ex_cont+l_cer_occ+l_sens+l_sen_motor
 print(t_c)
 
 
@@ -482,48 +482,48 @@ matrix_t_s_controls_rs[28,:,:]=ts_motor_4_rs
 
 
 
-ts_prec_1_rs=time_series_extract(n,196,mask_prec,list_prec[0],list_cont_rs)
-matrix_t_s_controls_rs[29,:,:]=ts_prec_1_rs
+ts_DMN_3_1_rs=time_series_extract(n,196,mask_DMN_3,list_DMN_3[0],list_cont_rs)
+matrix_t_s_controls_rs[29,:,:]=ts_DMN_3_1_rs
 
 
 
 
 
-ts_prec_3_rs=time_series_extract(n,196,mask_prec,list_prec[2],list_cont_rs)
-matrix_t_s_controls_rs[30,:,:]=ts_prec_3_rs
+ts_DMN_3_3_rs=time_series_extract(n,196,mask_DMN_3,list_DMN_3[2],list_cont_rs)
+matrix_t_s_controls_rs[30,:,:]=ts_DMN_3_3_rs
 
 
 
 
 
-ts_prec_4_rs=time_series_extract(n,196,mask_prec,list_prec[3],list_cont_rs)
-matrix_t_s_controls_rs[31,:,:]=ts_prec_4_rs
+ts_DMN_3_4_rs=time_series_extract(n,196,mask_DMN_3,list_DMN_3[3],list_cont_rs)
+matrix_t_s_controls_rs[31,:,:]=ts_DMN_3_4_rs
 
 
 
 
-ts_prec_5_rs=time_series_extract(n,196,mask_prec,list_prec[4],list_cont_rs)
-matrix_t_s_controls_rs[32,:,:]=ts_prec_5_rs
-
-
-
-
-
-ts_prec_6_rs=time_series_extract(n,196,mask_prec,list_prec[5],list_cont_rs)
-matrix_t_s_controls_rs[33,:,:]=ts_prec_6_rs
+ts_DMN_3_5_rs=time_series_extract(n,196,mask_DMN_3,list_DMN_3[4],list_cont_rs)
+matrix_t_s_controls_rs[32,:,:]=ts_DMN_3_5_rs
 
 
 
 
 
-ts_prec_8_rs=time_series_extract(n,196,mask_prec,list_prec[7],list_cont_rs)
-matrix_t_s_controls_rs[34,:,:]=ts_prec_8_rs
+ts_DMN_3_6_rs=time_series_extract(n,196,mask_DMN_3,list_DMN_3[5],list_cont_rs)
+matrix_t_s_controls_rs[33,:,:]=ts_DMN_3_6_rs
 
 
 
 
-ts_prec_9_rs=time_series_extract(n,196,mask_prec,list_prec[8],list_cont_rs)
-matrix_t_s_controls_rs[35,:,:]=ts_prec_9_rs
+
+ts_DMN_3_8_rs=time_series_extract(n,196,mask_DMN_3,list_DMN_3[7],list_cont_rs)
+matrix_t_s_controls_rs[34,:,:]=ts_DMN_3_8_rs
+
+
+
+
+ts_DMN_3_9_rs=time_series_extract(n,196,mask_DMN_3,list_DMN_3[8],list_cont_rs)
+matrix_t_s_controls_rs[35,:,:]=ts_DMN_3_9_rs
 
 
 
@@ -680,26 +680,26 @@ matrix_t_s_controls_pt[27,:,:]=ts_motor_3_pt
 ts_motor_4_pt=time_series_extract(n,210,mask_motor,list_motor[3],list_cont_pt)
 matrix_t_s_controls_pt[28,:,:]=ts_motor_4_pt
 
-ts_prec_1_pt=time_series_extract(n,210,mask_prec,list_prec[0],list_cont_pt)
-matrix_t_s_controls_pt[29,:,:]=ts_prec_1_pt
+ts_DMN_3_1_pt=time_series_extract(n,210,mask_DMN_3,list_DMN_3[0],list_cont_pt)
+matrix_t_s_controls_pt[29,:,:]=ts_DMN_3_1_pt
 
-ts_prec_3_pt=time_series_extract(n,210,mask_prec,list_prec[2],list_cont_pt)
-matrix_t_s_controls_pt[30,:,:]=ts_prec_3_pt
+ts_DMN_3_3_pt=time_series_extract(n,210,mask_DMN_3,list_DMN_3[2],list_cont_pt)
+matrix_t_s_controls_pt[30,:,:]=ts_DMN_3_3_pt
 
-ts_prec_4_pt=time_series_extract(n,210,mask_prec,list_prec[3],list_cont_pt)
-matrix_t_s_controls_pt[31,:,:]=ts_prec_4_pt
+ts_DMN_3_4_pt=time_series_extract(n,210,mask_DMN_3,list_DMN_3[3],list_cont_pt)
+matrix_t_s_controls_pt[31,:,:]=ts_DMN_3_4_pt
 
-ts_prec_5_pt=time_series_extract(n,210,mask_prec,list_prec[4],list_cont_pt)
-matrix_t_s_controls_pt[32,:,:]=ts_prec_5_pt
+ts_DMN_3_5_pt=time_series_extract(n,210,mask_DMN_3,list_DMN_3[4],list_cont_pt)
+matrix_t_s_controls_pt[32,:,:]=ts_DMN_3_5_pt
 
-ts_prec_6_pt=time_series_extract(n,210,mask_prec,list_prec[5],list_cont_pt)
-matrix_t_s_controls_pt[33,:,:]=ts_prec_6_pt
+ts_DMN_3_6_pt=time_series_extract(n,210,mask_DMN_3,list_DMN_3[5],list_cont_pt)
+matrix_t_s_controls_pt[33,:,:]=ts_DMN_3_6_pt
 
-ts_prec_8_pt=time_series_extract(n,210,mask_prec,list_prec[7],list_cont_pt)
-matrix_t_s_controls_pt[34,:,:]=ts_prec_8_pt
+ts_DMN_3_8_pt=time_series_extract(n,210,mask_DMN_3,list_DMN_3[7],list_cont_pt)
+matrix_t_s_controls_pt[34,:,:]=ts_DMN_3_8_pt
 
-ts_prec_9_pt=time_series_extract(n,210,mask_prec,list_prec[8],list_cont_pt)
-matrix_t_s_controls_pt[35,:,:]=ts_prec_9_pt
+ts_DMN_3_9_pt=time_series_extract(n,210,mask_DMN_3,list_DMN_3[8],list_cont_pt)
+matrix_t_s_controls_pt[35,:,:]=ts_DMN_3_9_pt
 
 ts_sen_motor_1_pt=time_series_extract(n,210,mask_sen_motor,list_sen_motor[0],list_cont_pt)
 matrix_t_s_controls_pt[36,:,:]=ts_sen_motor_1_pt
